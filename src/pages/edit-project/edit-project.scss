@@ -9,8 +9,12 @@ page-edit-project {
         flex-grow: 1;
     }
 
-    ion-icon{
+    ion-icon {
         padding-left: 0.3em;
         padding-right: 0em;
+    }
+
+    ion-scroll {
+        height: 50%;
     }
 }

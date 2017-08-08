@@ -40,5 +40,12 @@
         </ion-col>
       </ion-row>
     </ion-card>
+    <ion-scroll scrollY="true" dir="ltr">
+      <ion-list no-lines>
+        <button ion-item *ngFor="let item of project.itemsList" (click)="itemSelected(item)">
+          {{ item.title }}
+        </button> 
+      </ion-list>
+    </ion-scroll>
   </ion-content>
 </ion-content>

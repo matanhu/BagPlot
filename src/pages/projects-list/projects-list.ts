@@ -20,8 +20,11 @@ export class ProjectsListPage {
     private projectService: ProjectService) {
       // for(let i= 0 ; i< 100 ; i++) {
       //   const items = new Array<Item>();
-      //   const item = new Item("title" + i, "imgItem" + i, "text" + i);
-      //   items.push(item);
+      //   for(let j = 0 ; j< 100 ; j++) {
+      //     // const items = new Array<Item>();
+      //     const item = new Item("title" + j, "imgItem" + j, "text" + j);
+      //     items.push(item);
+      //   }
       //   let number = i+1;
       //   const project = new Project(
       //     "פרויקט מספר " + number, 
