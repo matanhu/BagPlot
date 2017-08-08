@@ -1,0 +1,44 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>EditProject</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <!--<div class="top-button-container" text-center>
+    <div class="top-button">
+      <button class="full-btn" ion-button outline icon-only>
+        <ion-icon name="pin"></ion-icon>
+      </button>
+    </div>
+    <div class="top-button">
+      <button class="full-btn" ion-button outline icon-only>
+        <ion-icon name="camera"></ion-icon>
+      </button>
+    </div>
+  </div>-->
+  <ion-content padding dir="rtl">
+    <ion-card>
+      <img [src]="project.projectImage"/>
+      <ion-card-content>
+        <ion-card-title>
+          {{project.projectName}}
+          </ion-card-title>
+        <p>
+          {{project.projectDescription}}
+        </p>
+      </ion-card-content>
+      <ion-row no-padding>
+        <ion-col>
+          <button ion-button clear small color="danger" icon-right>
+            <ion-icon name='camera'></ion-icon>
+            צלם תמונת פרויקט
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-content>
+</ion-content>

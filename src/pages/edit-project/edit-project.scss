@@ -1,0 +1,16 @@
+page-edit-project {
+    .top-button-container {
+        display: flex;
+        width: 100%;
+        position: relative;
+    }
+
+    .top-button {
+        flex-grow: 1;
+    }
+
+    ion-icon{
+        padding-left: 0.3em;
+        padding-right: 0em;
+    }
+}

@@ -22,7 +22,7 @@ export class ProjectService {
         return this.http.get('https://bagplot-b2914.firebaseio.com/projects/.json')
             .map(response => {
                 const projects = response.json() ? response.json() : [];
-                let projectsList = Object.keys(projects).map(function (key) { return projects[key]; });
+                let projectsList = Object.keys(projects).map(function (key) { return projects[key];});
                 this.projects = projectsList;
                 return this.projects;
             });

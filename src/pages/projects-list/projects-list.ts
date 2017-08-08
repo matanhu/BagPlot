@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Project } from "../../models/project";
 import { Item } from "../../models/item";
+import { EditProjectPage } from '../edit-project/edit-project';
 
 
 @IonicPage()
@@ -21,9 +22,11 @@ export class ProjectsListPage {
       //   const items = new Array<Item>();
       //   const item = new Item("title" + i, "imgItem" + i, "text" + i);
       //   items.push(item);
+      //   let number = i+1;
       //   const project = new Project(
-      //     "project" + i, 
-      //     "img" + i, 
+      //     "פרויקט מספר " + number, 
+      //     "https://images.haaretz.co.il/polopoly_fs/1.2920621.1461077898!/image/1096157220.jpg_gen/derivatives/size_1846xAuto/1096157220.jpg",
+      //     "פרויקט מחיר למשתכן, הגרלה 120, שכונת הרקפות, ראשון לציון" + i,
       //     items, 
       //     {latitude: 11.11, longitude: 11.11});
       //     this.projectService.addProject(project)
@@ -45,6 +48,7 @@ export class ProjectsListPage {
 
   projectSelected(project: Project) {
     console.log(project);
+    this.navCtrl.push(EditProjectPage, {project: project});
   }
 
 }

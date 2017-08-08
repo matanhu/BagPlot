@@ -9,12 +9,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { EditProjectPage } from '../pages/edit-project/edit-project';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ProjectsListPage
+    ProjectsListPage,
+    EditProjectPage
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { HomePage } from '../pages/home/home';
   entryComponents: [
     MyApp,
     HomePage,
-    ProjectsListPage
+    ProjectsListPage,
+    EditProjectPage
   ],
   providers: [
     StatusBar,

@@ -10,6 +10,9 @@
 <ion-content padding>
   <ion-list>
     <button ion-item *ngFor="let project of projectList" (click)="projectSelected(project)">
+      <ion-avatar item-start>
+      <img [src]="project.projectImage">
+    </ion-avatar>
     {{ project.projectName }}
   </button> 
   </ion-list>
