@@ -25,23 +25,88 @@
       <img [src]="project.projectImage"/>
       <ion-card-content>
         <ion-card-title>
-          {{project.projectName}}
-          </ion-card-title>
-        <p>
-          {{project.projectDescription}}
-        </p>
+          <div *ngIf="!editName">
+            <ion-row no-padding>
+              <ion-col col-10>
+                <div class="project-name-container">
+                  {{project.projectName}}
+                </div>
+              </ion-col>
+              <ion-col col-2>
+                <button (click)="setEditName()" ion-button icon-only clear small color="danger">
+                  <ion-icon class="edit-subject-btn" name="create"></ion-icon>
+                </button>
+              </ion-col>
+            </ion-row>
+          </div>
+          <div *ngIf="editName">
+            <ion-row no-padding>
+              <ion-col col-12>
+                <div class="project-name-container">
+                  <ion-label color="primary" stacked>שם פרויקט</ion-label>
+                  <ion-input [(ngModel)]="nameEditted" type="text" placeholder="שם פרויקט"></ion-input>
+                </div>
+              </ion-col>
+            </ion-row>
+            <ion-row no-padding>
+              <ion-col col-6>
+                <button (click)="calncelEditName()" ion-button clear small color="danger" icon-right>
+                  <ion-icon name="close"></ion-icon>
+                  ביטול
+                </button>
+              </ion-col>
+              <ion-col col-6>
+                <button (click)="saveEditName()" ion-button clear small color="danger" icon-right>
+                  <ion-icon name="checkmark"></ion-icon>
+                  שמור
+                </button>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-card-title>
+        <div *ngIf="!editDescription">
+          <p [innerHTML]="project.projectDescription | nl2br">
+            <!-- {{project.projectDescription | nl2br}} -->
+          </p>
+          <ion-row no-padding>
+            <ion-col>
+              <button (click)="getPicture()" ion-button clear small color="danger" icon-right>
+                <ion-icon name='camera'></ion-icon>
+                צלם תמונת פרויקט
+              </button>
+            </ion-col>
+            <ion-col>
+              <button (click)="setEditDescription()" ion-button clear small color="danger" icon-right>
+                <ion-icon class="edit-subject-btn" name="create"></ion-icon>
+                ערוך טקסט
+              </button>
+            </ion-col>
+          </ion-row>
+        </div>
+        <div *ngIf="editDescription">
+          <ion-textarea 
+            [(ngModel)]="descriptionEditted" 
+            placeholder="הכנס טקסט">
+          </ion-textarea>
+            <ion-row no-padding>
+              <ion-col>
+                <button (click)="calncelEditDescription()" ion-button clear small color="danger" icon-right>
+                  <ion-icon name="close"></ion-icon>
+                  ביטול
+                </button>
+              </ion-col>
+              <ion-col>
+                <button (click)="saveEditDescription()" ion-button clear small color="danger" icon-right>
+                  <ion-icon name="checkmark"></ion-icon>
+                  שמור
+                </button>
+              </ion-col>
+            </ion-row>
+        </div>
       </ion-card-content>
-      <ion-row no-padding>
-        <ion-col>
-          <button ion-button clear small color="danger" icon-right>
-            <ion-icon name='camera'></ion-icon>
-            צלם תמונת פרויקט
-          </button>
-        </ion-col>
-      </ion-row>
     </ion-card>
     <ion-scroll scrollY="true" dir="ltr">
-      <ion-list no-lines>
+      <ion-list>
         <button ion-item *ngFor="let item of project.itemsList" (click)="itemSelected(item)">
           {{ item.title }}
         </button> 

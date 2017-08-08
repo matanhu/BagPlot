@@ -1,4 +1,8 @@
 page-edit-project {
+    .project-name-container {
+        line-height: 2;
+    }
+
     .top-button-container {
         display: flex;
         width: 100%;
@@ -15,6 +19,6 @@ page-edit-project {
     }
 
     ion-scroll {
-        height: 50%;
+        height: 100%;
     }
 }

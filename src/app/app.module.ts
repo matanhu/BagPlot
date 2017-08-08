@@ -1,3 +1,5 @@
+import { Nl2brPipe } from '../pipes/nl2br/nl2br';
+import { Camera } from '@ionic-native/camera';
 import { HttpModule } from '@angular/http';
 import { ProjectService } from '../services/project';
 import { ProjectsListPage } from '../pages/projects-list/projects-list';
@@ -16,7 +18,8 @@ import { EditProjectPage } from '../pages/edit-project/edit-project';
     MyApp,
     HomePage,
     ProjectsListPage,
-    EditProjectPage
+    EditProjectPage,
+    Nl2brPipe
   ],
   imports: [
     BrowserModule,
@@ -34,6 +37,7 @@ import { EditProjectPage } from '../pages/edit-project/edit-project';
     StatusBar,
     SplashScreen,
     ProjectService,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

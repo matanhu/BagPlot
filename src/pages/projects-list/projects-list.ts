@@ -39,7 +39,8 @@ export class ProjectsListPage {
       //       });
       // }
       this.projectService.getAllProjects()
-        .subscribe((response: Project[]) => {
+        // .subscribe((response: Project[]) => {
+        .then((response: Project[]) => {
           this.projectList = response;
       });
       

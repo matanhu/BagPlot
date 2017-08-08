@@ -3,6 +3,7 @@ import { Location } from "./location";
 
 export class Project {
     constructor(
+        public projectId: string,
         public projectName: string,
         public projectImage: string,
         public projectDescription: string,
