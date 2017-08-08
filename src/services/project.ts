@@ -21,8 +21,9 @@ export class ProjectService {
     getAllProjects(): Observable<Project[]> {
         return this.http.get('https://bagplot-b2914.firebaseio.com/projects/.json')
             .map(response => {
-                const projects: Project[] = Array.from(response.json());
-                this.projects = projects;
+                const projects = response.json() ? response.json() : [];
+                let projectsList = Object.keys(projects).map(function (key) { return projects[key]; });
+                this.projects = projectsList;
                 return this.projects;
             });
     }
