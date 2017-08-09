@@ -16,6 +16,7 @@ export class ProjectService {
         private http: Http) {
             this.database = firebase.database();
             this.storage = firebase.storage();
+            this.onProjectChanged();
         }
 
 
@@ -72,8 +73,8 @@ export class ProjectService {
     //     });
     // }
 
-    getAllProjects() {
-        return this.database.ref('/projects').once('value')
+    getAllProjectsOnce() {
+        return this.database.ref().child('projects').orderByChild('projectName').once('value')
             .then((snapshot) => {
                     const projects = snapshot.val() ? snapshot.val() : [];
                     let projectsList = Object.keys(projects)
@@ -87,4 +88,27 @@ export class ProjectService {
                 }
             );
     }
+
+    getAllProjectsOn() {
+        var query = this.database.ref().child('projects').orderByChild('projectName');
+         query.on('child_added', (snapshot) => {
+        // query.on('value', (snapshot) => {
+            const project: Project = snapshot.val();
+            project.projectId = snapshot.key;
+            this.projects.push(project);
+        });
+    }
+
+    onProjectChanged() {
+        var query = this.database.ref().child('projects').orderByChild('projectName');
+         query.on('child_changed', (snapshot) => {
+        // query.on('value', (snapshot) => {
+            const index = this.projects.findIndex((project) => project.projectId === snapshot.key);
+            const project: Project = snapshot.val();
+            project.projectId = snapshot.key;
+            this.projects[index] = project;
+            // this.projects.push(project);
+        });
+    }
+    
 }

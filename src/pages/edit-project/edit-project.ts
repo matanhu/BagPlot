@@ -1,8 +1,10 @@
+import { Item } from '../../models/item';
 import { ProjectService } from '../../services/project';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Project } from '../../models/project';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { EditItemPage } from '../edit-item/edit-item';
 
 @IonicPage()
 @Component({
@@ -85,4 +87,7 @@ export class EditProjectPage {
     this.nameEditted = this.project.projectName;
   }
 
+  onSelectItem(item: Item) {
+    this.navCtrl.push(EditItemPage, {item: item})
+  }
 }

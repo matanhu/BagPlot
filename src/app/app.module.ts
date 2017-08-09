@@ -12,6 +12,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { EditProjectPage } from '../pages/edit-project/edit-project';
+import { EditItemPage } from '../pages/edit-item/edit-item';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { EditProjectPage } from '../pages/edit-project/edit-project';
     HomePage,
     ProjectsListPage,
     EditProjectPage,
+    EditItemPage,
     Nl2brPipe
   ],
   imports: [
@@ -31,7 +33,8 @@ import { EditProjectPage } from '../pages/edit-project/edit-project';
     MyApp,
     HomePage,
     ProjectsListPage,
-    EditProjectPage
+    EditProjectPage,
+    EditItemPage
   ],
   providers: [
     StatusBar,

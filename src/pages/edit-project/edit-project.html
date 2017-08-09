@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>EditProject</ion-title>
+    <ion-title>{{project.projectName}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -33,7 +33,7 @@
                 </div>
               </ion-col>
               <ion-col col-2>
-                <button (click)="setEditName()" ion-button icon-only clear small color="danger">
+                <button (click)="setEditName()" ion-button icon-only small block outline icon-right color="danger">
                   <ion-icon class="edit-subject-btn" name="create"></ion-icon>
                 </button>
               </ion-col>
@@ -44,19 +44,19 @@
               <ion-col col-12>
                 <div class="project-name-container">
                   <ion-label color="primary" stacked>שם פרויקט</ion-label>
-                  <ion-input [(ngModel)]="nameEditted" type="text" placeholder="שם פרויקט"></ion-input>
+                  <ion-input class="form-control" [(ngModel)]="nameEditted" type="text" placeholder="שם פרויקט"></ion-input>
                 </div>
               </ion-col>
             </ion-row>
             <ion-row no-padding>
               <ion-col col-6>
-                <button (click)="calncelEditName()" ion-button clear small color="danger" icon-right>
+                <button (click)="calncelEditName()" ion-button small block outline icon-right color="danger">
                   <ion-icon name="close"></ion-icon>
                   ביטול
                 </button>
               </ion-col>
               <ion-col col-6>
-                <button (click)="saveEditName()" ion-button clear small color="danger" icon-right>
+                <button (click)="saveEditName()" ion-button small block outline icon-right color="danger">
                   <ion-icon name="checkmark"></ion-icon>
                   שמור
                 </button>
@@ -70,13 +70,13 @@
           </p>
           <ion-row no-padding>
             <ion-col>
-              <button (click)="getPicture()" ion-button clear small color="danger" icon-right>
+              <button (click)="getPicture()" ion-button small block outline icon-right color="danger">
                 <ion-icon name='camera'></ion-icon>
                 צלם תמונת פרויקט
               </button>
             </ion-col>
             <ion-col>
-              <button (click)="setEditDescription()" ion-button clear small color="danger" icon-right>
+              <button (click)="setEditDescription()" ion-button  small block outline icon-right color="danger">
                 <ion-icon class="edit-subject-btn" name="create"></ion-icon>
                 ערוך טקסט
               </button>
@@ -85,18 +85,19 @@
         </div>
         <div *ngIf="editDescription">
           <ion-textarea 
+            class="form-control"
             [(ngModel)]="descriptionEditted" 
             placeholder="הכנס טקסט">
           </ion-textarea>
             <ion-row no-padding>
               <ion-col>
-                <button (click)="calncelEditDescription()" ion-button clear small color="danger" icon-right>
+                <button (click)="calncelEditDescription()" ion-button small  block outline icon-right color="danger">
                   <ion-icon name="close"></ion-icon>
                   ביטול
                 </button>
               </ion-col>
               <ion-col>
-                <button (click)="saveEditDescription()" ion-button clear small color="danger" icon-right>
+                <button (click)="saveEditDescription()" ion-button small block outline icon-right color="danger">
                   <ion-icon name="checkmark"></ion-icon>
                   שמור
                 </button>
@@ -107,7 +108,7 @@
     </ion-card>
     <ion-scroll scrollY="true" dir="ltr">
       <ion-list>
-        <button ion-item *ngFor="let item of project.itemsList" (click)="itemSelected(item)">
+        <button ion-item *ngFor="let item of project.itemsList" (click)="onSelectItem(item)">
           {{ item.title }}
         </button> 
       </ion-list>

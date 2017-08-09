@@ -18,31 +18,16 @@ export class ProjectsListPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     private projectService: ProjectService) {
-      // for(let i= 0 ; i< 100 ; i++) {
-      //   const items = new Array<Item>();
-      //   for(let j = 0 ; j< 100 ; j++) {
-      //     // const items = new Array<Item>();
-      //     const item = new Item("title" + j, "imgItem" + j, "text" + j);
-      //     items.push(item);
-      //   }
-      //   let number = i+1;
-      //   const project = new Project(
-      //     "פרויקט מספר " + number, 
-      //     "https://images.haaretz.co.il/polopoly_fs/1.2920621.1461077898!/image/1096157220.jpg_gen/derivatives/size_1846xAuto/1096157220.jpg",
-      //     "פרויקט מחיר למשתכן, הגרלה 120, שכונת הרקפות, ראשון לציון" + i,
-      //     items, 
-      //     {latitude: 11.11, longitude: 11.11});
-      //     this.projectService.addProject(project)
-      //       .subscribe( (response) => {
-      //         console.log(response);
-      //         this.projectList.push(project);
-      //       });
-      // }
-      this.projectService.getAllProjects()
-        // .subscribe((response: Project[]) => {
-        .then((response: Project[]) => {
-          this.projectList = response;
-      });
+      // this.autoFillStubData();
+
+      // this.projectService.getAllProjectsOnce()
+      //   // .subscribe((response: Project[]) => {
+      //   .then((response: Project[]) => {
+      //     this.projectList = response;
+      // });
+
+      this.projectList = this.projectService.projects;
+      this.projectService.getAllProjectsOn();
       
   }
 
@@ -53,6 +38,29 @@ export class ProjectsListPage {
   projectSelected(project: Project) {
     console.log(project);
     this.navCtrl.push(EditProjectPage, {project: project});
+  }
+
+  autoFillStubData() {
+    for(let i= 0 ; i< 20 ; i++) {
+      const items = new Array<Item>();
+      for(let j = 0 ; j< 5 ; j++) {
+        // const items = new Array<Item>();
+        const item = new Item("title" + j, "imgItem" + j, "text" + j);
+        items.push(item);
+      }
+      let number = i+1;
+      const project = new Project(
+        "פרויקט מספר " + number, 
+        "https://images.haaretz.co.il/polopoly_fs/1.2920621.1461077898!/image/1096157220.jpg_gen/derivatives/size_1846xAuto/1096157220.jpg",
+        "פרויקט מחיר למשתכן, הגרלה 120, שכונת הרקפות, ראשון לציון" + i,
+        items, 
+        {latitude: 11.11, longitude: 11.11});
+        this.projectService.addProject(project)
+          .subscribe( (response) => {
+            console.log(response);
+            this.projectList.push(project);
+          });
+    }
   }
 
 }
