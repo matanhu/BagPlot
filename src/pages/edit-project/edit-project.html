@@ -106,11 +106,21 @@
         </div>
       </ion-card-content>
     </ion-card>
+    <ion-row no-padding>
+      <ion-col>
+        <button (click)="addNewItem()" ion-button small block outline icon-right color="primary">
+          <ion-icon name='add'></ion-icon>
+          הוסף פריט
+        </button>
+      </ion-col>
+    </ion-row>
     <ion-scroll scrollY="true" dir="ltr">
       <ion-list>
+        <ion-item-group  reorder="true" (ionItemReorder)="reorderItems($event)">
         <button ion-item *ngFor="let item of project.itemsList" (click)="onSelectItem(item)">
           {{ item.title }}
         </button> 
+        </ion-item-group>
       </ion-list>
     </ion-scroll>
   </ion-content>

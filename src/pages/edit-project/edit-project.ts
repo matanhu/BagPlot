@@ -24,6 +24,11 @@ export class EditProjectPage {
     private projectService: ProjectService,
     private camera: Camera) {
       this.project = this.navParams.get('project');
+      this.project.itemsList = Object.keys(this.project.itemsList)
+                        .map((key) => { 
+                            var temp: Item = this.project.itemsList[key];
+                            return temp;
+                        });
   }
 
   ionViewDidLoad() {
@@ -87,7 +92,17 @@ export class EditProjectPage {
     this.nameEditted = this.project.projectName;
   }
 
+  addNewItem() {
+    this.navCtrl.push(EditItemPage, {projectId: this.project.projectId});
+  }
+
   onSelectItem(item: Item) {
-    this.navCtrl.push(EditItemPage, {item: item})
+    this.navCtrl.push(EditItemPage, {item: item, projectId: this.project.projectId});
+  }
+
+  reorderItems(indexes) {
+    let element = this.project.itemsList[indexes.from];
+    this.project.itemsList.splice(indexes.from, 1);
+    this.project.itemsList.splice(indexes.to, 0, element);
   }
 }

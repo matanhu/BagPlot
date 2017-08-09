@@ -1,3 +1,4 @@
+import { ItemService } from '../services/item';
 import { Nl2brPipe } from '../pipes/nl2br/nl2br';
 import { Camera } from '@ionic-native/camera';
 import { HttpModule } from '@angular/http';
@@ -40,6 +41,7 @@ import { EditItemPage } from '../pages/edit-item/edit-item';
     StatusBar,
     SplashScreen,
     ProjectService,
+    ItemService,
     Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

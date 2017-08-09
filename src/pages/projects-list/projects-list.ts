@@ -45,7 +45,7 @@ export class ProjectsListPage {
       const items = new Array<Item>();
       for(let j = 0 ; j< 5 ; j++) {
         // const items = new Array<Item>();
-        const item = new Item("title" + j, "imgItem" + j, "text" + j);
+        const item = new Item("title " + j, "https://www.youcaring.com/blog/wp-content/uploads/2013/01/htm-1.jpg", "text " + j);
         items.push(item);
       }
       let number = i+1;

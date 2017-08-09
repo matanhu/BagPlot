@@ -1,18 +1,106 @@
-<!--
-  Generated template for the EditItemPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>EditItem</ion-title>
+    <ion-title>{{item.title}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+<ion-content padding dir="rtl">
+    <ion-card>
+      <img [src]="item.image"/>
+      <ion-card-content>
+        <ion-card-title>
+          <div *ngIf="!editTitle">
+            <ion-row no-padding>
+              <ion-col col-10>
+                <div class="item-title-container">
+                  {{item.title}}
+                </div>
+              </ion-col>
+              <ion-col col-2>
+                <button (click)="setEditTitle()" ion-button icon-only small block outline icon-right color="danger">
+                  <ion-icon class="edit-subject-btn" name="create"></ion-icon>
+                </button>
+              </ion-col>
+            </ion-row>
+          </div>
+          <div *ngIf="editTitle">
+            <ion-row no-padding>
+              <ion-col col-12>
+                <div class="item-title-container">
+                  <ion-label color="primary" stacked>שם פרויקט</ion-label>
+                  <ion-input class="form-control" [(ngModel)]="titleEditted" type="text" placeholder="שם פרויקט"></ion-input>
+                </div>
+              </ion-col>
+            </ion-row>
+            <ion-row no-padding>
+              <ion-col col-6>
+                <button (click)="calncelEditTitle()" ion-button small block outline icon-right color="danger">
+                  <ion-icon name="close"></ion-icon>
+                  ביטול
+                </button>
+              </ion-col>
+              <ion-col col-6>
+                <button (click)="saveEditTitle()" ion-button small block outline icon-right color="danger">
+                  <ion-icon name="checkmark"></ion-icon>
+                  שמור
+                </button>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-card-title>
+        <div *ngIf="!editText">
+          <p [innerHTML]="item.text | nl2br">
+            <!-- {{project.projectDescription | nl2br}} -->
+          </p>
+          <ion-row no-padding>
+            <ion-col>
+              <button (click)="getPicture()" ion-button small block outline icon-right color="danger">
+                <ion-icon name='camera'></ion-icon>
+                צלם תמונת פרויקט
+              </button>
+            </ion-col>
+            <ion-col>
+              <button (click)="setEditText()" ion-button  small block outline icon-right color="danger">
+                <ion-icon class="edit-subject-btn" name="create"></ion-icon>
+                ערוך טקסט
+              </button>
+            </ion-col>
+          </ion-row>
+        </div>
+        <div *ngIf="editText">
+          <ion-textarea 
+            class="form-control"
+            [(ngModel)]="textEditted" 
+            placeholder="הכנס טקסט">
+          </ion-textarea>
+            <ion-row no-padding>
+              <ion-col>
+                <button (click)="calncelEditText()" ion-button small  block outline icon-right color="danger">
+                  <ion-icon name="close"></ion-icon>
+                  ביטול
+                </button>
+              </ion-col>
+              <ion-col>
+                <button (click)="saveEditText()" ion-button small block outline icon-right color="danger">
+                  <ion-icon name="checkmark"></ion-icon>
+                  שמור
+                </button>
+              </ion-col>
+            </ion-row>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    <ion-row no-padding>
+      <ion-col>
+        <button (click)="saveItem()" ion-button small block outline icon-right color="primary">
+          <ion-icon name="checkmark"></ion-icon>
+          שמירה
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-content>
 </ion-content>

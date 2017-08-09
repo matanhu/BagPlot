@@ -1,3 +1,53 @@
 page-edit-item {
+    .item-name-container {
+        // line-height: 2;
+    }
 
+    .top-button-container {
+        display: flex;
+        width: 100%;
+        position: relative;
+    }
+
+    .top-button {
+        flex-grow: 1;
+    }
+
+    ion-icon {
+        padding-left: 0.3em;
+        padding-right: 0em;
+    }
+
+    ion-scroll {
+        height: 100%;
+    }
+
+    .form-control > input, .form-control > textarea {
+        display: block;
+        padding: .5rem .75rem;
+        line-height: 1.25;
+        color: #464a4c;
+        background-color: #fff;
+        background-image: none;
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        border: 1px solid rgba(0,0,0,.15);
+        border-radius: .25rem;
+        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    }
+
+    .form-control > input:focus, .form-control > textarea:focus {
+        color: #464a4c;
+        background-color: #fff;
+        border-color: #5cb3fd;
+        outline: 0;
+    }
+
+    .form-control > textarea {
+        height: 20vh;
+    }
 }
