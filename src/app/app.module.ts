@@ -14,6 +14,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { EditProjectPage } from '../pages/edit-project/edit-project';
 import { EditItemPage } from '../pages/edit-item/edit-item';
+import { ProjectTabsPage } from '../pages/project-tabs/project-tabs';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { EditItemPage } from '../pages/edit-item/edit-item';
     ProjectsListPage,
     EditProjectPage,
     EditItemPage,
+    ProjectTabsPage,
     Nl2brPipe
   ],
   imports: [
@@ -35,7 +37,8 @@ import { EditItemPage } from '../pages/edit-item/edit-item';
     HomePage,
     ProjectsListPage,
     EditProjectPage,
-    EditItemPage
+    EditItemPage,
+    ProjectTabsPage
   ],
   providers: [
     StatusBar,

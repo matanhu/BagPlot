@@ -13,7 +13,7 @@
       <img [src]="item.image"/>
       <ion-card-content>
         <ion-card-title>
-          <div *ngIf="!editTitle">
+          <div *ngIf="!editTitle && item.title">
             <ion-row no-padding>
               <ion-col col-10>
                 <div class="item-title-container">
@@ -27,7 +27,7 @@
               </ion-col>
             </ion-row>
           </div>
-          <div *ngIf="editTitle">
+          <div *ngIf="editTitle || !item.title">
             <ion-row no-padding>
               <ion-col col-12>
                 <div class="item-title-container">
@@ -52,7 +52,7 @@
             </ion-row>
           </div>
         </ion-card-title>
-        <div *ngIf="!editText">
+        <div *ngIf="!editText && item.text">
           <p [innerHTML]="item.text | nl2br">
             <!-- {{project.projectDescription | nl2br}} -->
           </p>
@@ -71,7 +71,7 @@
             </ion-col>
           </ion-row>
         </div>
-        <div *ngIf="editText">
+        <div *ngIf="editText || !item.text">
           <ion-textarea 
             class="form-control"
             [(ngModel)]="textEditted" 
@@ -99,6 +99,12 @@
         <button (click)="saveItem()" ion-button small block outline icon-right color="primary">
           <ion-icon name="checkmark"></ion-icon>
           שמירה
+        </button>
+      </ion-col>
+      <ion-col>
+        <button (click)="cancelEdit()" ion-button small block outline icon-right color="primary">
+          <ion-icon name="close"></ion-icon>
+          ביטול
         </button>
       </ion-col>
     </ion-row>

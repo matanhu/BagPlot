@@ -2,7 +2,7 @@ import { ItemService } from '../../services/item';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Item } from '../../models/item';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -20,6 +20,7 @@ export class EditItemPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
+    public viewCtrl: ViewController,
     private itemService: ItemService,
     private camera: Camera) {
       this.item = this.navParams.get('item');
@@ -96,8 +97,17 @@ export class EditItemPage {
     console.log(this.item);
     this.itemService.addItem(this.item, this.projectId)
       .then((res) => {
-        console.log("saveItem: " + res);
+        if(!res) {
+          console.log("saveItem success");
+          // this.navCtrl.pop(this.item);
+          this.viewCtrl.dismiss(this.item);
+        }
+        console.log("saveItem error: " + res);
       });
+  }
+
+  cancelEdit() {
+    this.viewCtrl.dismiss();
   }
 
 }
