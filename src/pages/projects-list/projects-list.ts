@@ -45,11 +45,11 @@ export class ProjectsListPage {
   autoFillStubData() {
     for(let i= 0 ; i< 20 ; i++) {
       const items = new Array<Item>();
-      for(let j = 0 ; j< 5 ; j++) {
-        // const items = new Array<Item>();
-        const item = new Item("title " + j, "https://www.youcaring.com/blog/wp-content/uploads/2013/01/htm-1.jpg", "text " + j);
-        items.push(item);
-      }
+      // for(let j = 0 ; j< 5 ; j++) {
+      //   // const items = new Array<Item>();
+      //   const item = new Item("title " + j, "https://www.youcaring.com/blog/wp-content/uploads/2013/01/htm-1.jpg", "text " + j);
+      //   items.push(item);
+      // }
       let number = i+1;
       const project = new Project(
         "פרויקט מספר " + number, 

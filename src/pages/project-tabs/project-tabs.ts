@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Item } from '../../models/item';
 import { Project } from '../../models/project';
 import { ProjectsListPage } from '../projects-list/projects-list';
@@ -12,6 +13,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * on Ionic pages and navigation.
  */
 
+=======
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+
+>>>>>>> d2d6a94251c3241a46215f3294fe1bb53c5244b7
 @IonicPage()
 @Component({
   selector: 'page-project-tabs',
@@ -19,6 +25,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProjectTabsPage {
 
+<<<<<<< HEAD
   editProjectPage = EditProjectPage;
   project: Project;
 
@@ -27,6 +34,9 @@ export class ProjectTabsPage {
     public navParams: NavParams) {
       this.project = this.navParams.get('project');
       
+=======
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+>>>>>>> d2d6a94251c3241a46215f3294fe1bb53c5244b7
   }
 
   ionViewDidLoad() {

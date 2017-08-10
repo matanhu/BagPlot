@@ -18,11 +18,13 @@ export class ItemService {
     }
 
     addItem(item: Item, projectId: string) {
-        return this.database.ref().child('project').child(projectId).child('itemsList').child(item.itemId)
+        return this.database.ref().child('projects').child(projectId).child('itemsList').child(item.itemId)
             .set(item)
             .then(response => {
-                console.log(response.json());
-                return response.json();
+                if(!response) {
+                    return null;
+                }
+                return response;
             });
     }
 }
