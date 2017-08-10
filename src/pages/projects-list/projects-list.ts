@@ -1,3 +1,4 @@
+import { ProjectTabsPage } from '../project-tabs/project-tabs';
 import { ProjectService } from '../../services/project';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -37,7 +38,8 @@ export class ProjectsListPage {
 
   projectSelected(project: Project) {
     console.log(project);
-    this.navCtrl.push(EditProjectPage, {project: project});
+    // this.navCtrl.push(EditProjectPage, {project: project});
+    this.navCtrl.push(ProjectTabsPage, {project: project});
   }
 
   autoFillStubData() {
