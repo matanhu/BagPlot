@@ -3,7 +3,7 @@ import { ProjectService } from '../../services/project';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Project } from '../../models/project';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, ModalController, NavController, NavParams, ViewController } from 'ionic-angular';
 import { EditItemPage } from '../edit-item/edit-item';
 
 @IonicPage()
@@ -22,13 +22,18 @@ export class EditProjectPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     private projectService: ProjectService,
+    private modalCtrl: ModalController,
     private camera: Camera) {
       this.project = this.navParams.get('project');
-      this.project.itemsList = Object.keys(this.project.itemsList)
-                        .map((key) => { 
-                            var temp: Item = this.project.itemsList[key];
-                            return temp;
-                        });
+      if(this.project.itemsList) {
+        this.project.itemsList = Object.keys(this.project.itemsList)
+                          .map((key) => { 
+                              var temp: Item = this.project.itemsList[key];
+                              return temp;
+                          });
+      } else {
+        this.project.itemsList = new Array<Item>();
+      }
   }
 
   ionViewDidLoad() {
@@ -93,11 +98,29 @@ export class EditProjectPage {
   }
 
   addNewItem() {
-    this.navCtrl.push(EditItemPage, {projectId: this.project.projectId});
+    // this.navCtrl.push(EditItemPage, {projectId: this.project.projectId});
+    let modal = this.modalCtrl.create(EditItemPage, {projectId: this.project.projectId});
+    modal.onDidDismiss(
+      item => {
+        if(item) {
+          console.log(item);
+          this.project.itemsList.push(item);
+        }
+    });
+    modal.present();
   }
 
-  onSelectItem(item: Item) {
-    this.navCtrl.push(EditItemPage, {item: item, projectId: this.project.projectId});
+  onSelectItem(itemSelected: Item) {
+    // this.navCtrl.push(EditItemPage, {item: item, projectId: this.project.projectId});
+    let modal = this.modalCtrl.create(EditItemPage, {item: itemSelected, projectId: this.project.projectId});
+    modal.onDidDismiss(
+      item => {
+        if(item) {
+          console.log(item);
+          this.project.itemsList[itemSelected.itemId] = item;
+        }
+    });
+    modal.present();
   }
 
   reorderItems(indexes) {
