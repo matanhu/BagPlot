@@ -1,3 +1,4 @@
+import { Response } from '@angular/http';
 import { ItemService } from '../../services/item';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Item } from '../../models/item';
@@ -91,6 +92,17 @@ export class EditItemPage {
   setEditTitle() {
     this.editTitle = true;
     this.titleEditted = this.item.title;
+  }
+
+  saveImage() {
+    this.itemService.addImage(this.item, this.projectId)
+      .then((res: Response) => {
+        if(res.ok) {
+          console.log(res);
+          this.item.image = res.json();
+          this.saveItem();
+        }
+      });
   }
 
   saveItem() {

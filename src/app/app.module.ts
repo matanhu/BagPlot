@@ -1,4 +1,3 @@
-import { ProjectTabsPage } from '../pages/project-tabs/project-tabs';
 import { ItemService } from '../services/item';
 import { Nl2brPipe } from '../pipes/nl2br/nl2br';
 import { Camera } from '@ionic-native/camera';
@@ -16,6 +15,7 @@ import { HomePage } from '../pages/home/home';
 import { EditProjectPage } from '../pages/edit-project/edit-project';
 import { EditItemPage } from '../pages/edit-item/edit-item';
 import { ProjectTabsPage } from '../pages/project-tabs/project-tabs';
+import { ProjectPdfViewPage } from '../pages/project-pdf-view/project-pdf-view';
 
 @NgModule({
   declarations: [
@@ -25,6 +25,7 @@ import { ProjectTabsPage } from '../pages/project-tabs/project-tabs';
     EditProjectPage,
     EditItemPage,
     ProjectTabsPage,
+    ProjectPdfViewPage,
     Nl2brPipe
   ],
   imports: [
@@ -39,7 +40,8 @@ import { ProjectTabsPage } from '../pages/project-tabs/project-tabs';
     ProjectsListPage,
     EditProjectPage,
     EditItemPage,
-    ProjectTabsPage
+    ProjectTabsPage,
+    ProjectPdfViewPage
   ],
   providers: [
     StatusBar,

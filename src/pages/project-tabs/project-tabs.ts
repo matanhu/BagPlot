@@ -1,3 +1,4 @@
+import { ProjectPdfViewPage } from '../project-pdf-view/project-pdf-view';
 import { Item } from '../../models/item';
 import { Project } from '../../models/project';
 import { ProjectsListPage } from '../projects-list/projects-list';
@@ -13,6 +14,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class ProjectTabsPage {
 
   editProjectPage = EditProjectPage;
+  projectPdfViewPage = ProjectPdfViewPage;
   project: Project;
 
   constructor(

@@ -1,0 +1,15 @@
+<ion-content dir="rtl">
+  <div *ngFor="let item of project.itemsList">
+    <ion-card>
+      <ion-item>
+        <h2>{{item.title}}</h2>
+      </ion-item>
+
+      <img [src]="item.image">
+
+      <ion-card-content>
+        <p [innerHTML]="item.text | nl2br"></p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
