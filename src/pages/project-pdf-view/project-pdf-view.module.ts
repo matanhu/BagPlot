@@ -1,3 +1,4 @@
+import { PipesModule } from '../../pipes/pipes.module';
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { ProjectPdfViewPage } from './project-pdf-view';
@@ -8,6 +9,7 @@ import { ProjectPdfViewPage } from './project-pdf-view';
   ],
   imports: [
     IonicPageModule.forChild(ProjectPdfViewPage),
+    PipesModule
   ],
 })
 export class ProjectPdfViewPageModule {}

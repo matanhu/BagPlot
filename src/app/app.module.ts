@@ -1,3 +1,9 @@
+import { PipesModule } from '../pipes/pipes.module';
+import { ProjectPdfViewPageModule } from '../pages/project-pdf-view/project-pdf-view.module';
+import { ProjectTabsPageModule } from '../pages/project-tabs/project-tabs.module';
+import { EditItemPageModule } from '../pages/edit-item/edit-item.module';
+import { EditProjectPageModule } from '../pages/edit-project/edit-project.module';
+import { ProjectsListPageModule } from '../pages/projects-list/projects-list.module';
 import { ItemService } from '../services/item';
 import { Nl2brPipe } from '../pipes/nl2br/nl2br';
 import { Camera } from '@ionic-native/camera';
@@ -21,17 +27,22 @@ import { ProjectPdfViewPage } from '../pages/project-pdf-view/project-pdf-view';
   declarations: [
     MyApp,
     HomePage,
-    ProjectsListPage,
-    EditProjectPage,
-    EditItemPage,
-    ProjectTabsPage,
-    ProjectPdfViewPage,
-    Nl2brPipe
+    // ProjectsListPage,
+    // EditProjectPage,
+    // EditItemPage,
+    // ProjectTabsPage,
+    // ProjectPdfViewPage,
+    // Nl2brPipe
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
+    ProjectsListPageModule,
+    EditProjectPageModule,
+    EditItemPageModule,
+    ProjectTabsPageModule,
+    ProjectPdfViewPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
