@@ -1,14 +1,14 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="fb-blue">
     <ion-title>{{project.projectName}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-  <ion-tabs>
+<ion-content>
+  <ion-tabs color="fb-blue">
      <ion-tab [root]="editProjectPage" [rootParams]="{project: project}" tabTitle="Chat" tabIcon="add"></ion-tab>
      <ion-tab [root]="projectPdfViewPage" [rootParams]="{project: project}" tabTitle="Chat" tabIcon="add"></ion-tab>
      <ion-tab [root]="editProjectPage" [rootParams]="{project: project}" tabTitle="Chat" tabIcon="add"></ion-tab>

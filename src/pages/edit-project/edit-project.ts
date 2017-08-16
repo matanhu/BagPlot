@@ -1,9 +1,10 @@
+import { Scroll } from 'ionic-angular/umd';
 import { Item } from '../../models/item';
 import { ProjectService } from '../../services/project';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Project } from '../../models/project';
-import { Component } from '@angular/core';
-import { IonicPage, ModalController, NavController, NavParams, ViewController } from 'ionic-angular';
+import { Component, NgZone, ViewChild } from '@angular/core';
+import { Card, Content, IonicPage, ModalController, NavController, NavParams, ViewController } from 'ionic-angular';
 import { EditItemPage } from '../edit-item/edit-item';
 
 @IonicPage()
@@ -17,10 +18,17 @@ export class EditProjectPage {
   descriptionEditted = '';
   editName = false;
   nameEditted = '';
+  @ViewChild('content')
+  content: Content;
+  @ViewChild('projectDetails')
+  projectDetails: any;
+  @ViewChild('addItemRow')
+  addItemRow: any;
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
+    private ngZone: NgZone,
     private projectService: ProjectService,
     private modalCtrl: ModalController,
     private camera: Camera) {
@@ -34,6 +42,12 @@ export class EditProjectPage {
       } else {
         this.project.itemsList = new Array<Item>();
       }
+  }
+
+  ngAfterViewInit() {
+    this.content.ionScroll.subscribe((event) => {
+        this.onScroll(event);
+    });
   }
 
   ionViewDidLoad() {
@@ -127,5 +141,25 @@ export class EditProjectPage {
     let element = this.project.itemsList[indexes.from];
     this.project.itemsList.splice(indexes.from, 1);
     this.project.itemsList.splice(indexes.to, 0, element);
+  }
+
+  onScroll(event) {
+    console.log(this.projectDetails );
+    const offset = this.projectDetails.nativeElement.offsetTop + this.projectDetails.nativeElement.offsetHeight;
+    if(event.deltaY > 0) {
+      if(offset < event.startY + 500){
+        this.projectDetails.nativeElement.classList.add("close"); 
+        this.addItemRow.nativeElement.classList.add("fix");
+      }
+      console.log("scroll DOWN");
+    } else {
+      if(offset > event.startY){
+        this.projectDetails.nativeElement.classList.remove("close");
+        this.addItemRow.nativeElement.classList.remove("fix");
+      }
+      console.log("scroll UP");
+    }
+    
+    
   }
 }

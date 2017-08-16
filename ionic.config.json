@@ -1,5 +1,8 @@
 {
   "name": "BagPlot",
   "app_id": "72429c3e",
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
 }

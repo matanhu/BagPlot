@@ -1,4 +1,7 @@
 page-edit-project {
+    .ion-content {
+        background: #000;
+    }
     .project-name-container {
         // line-height: 2;
     }
@@ -49,5 +52,34 @@ page-edit-project {
 
     .form-control > textarea {
         height: 20vh;
+    }
+
+    .card {
+        padding: 1em;
+        margin: 0px;
+        width: 100%;
+        font-size: 1.4rem;
+        background: #fff;
+        -webkit-box-shadow: none;
+        border-bottom: 1.2em solid #e3e3e3;
+        transform: translate(0%,0%);
+        transition: all 2s;
+    }
+
+    .card.close {
+        height: 100%;
+        /* top: -100%; */
+        /* position: absolute; */
+        transform: translate(1%,-100%);
+    }
+
+    .fix.add-item-row {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        z-index: 100;
+        transform: translate(0%,0%);
     }
 }

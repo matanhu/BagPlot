@@ -95,6 +95,7 @@ export class EditItemPage {
   }
 
   saveImage() {
+    if(this.item.image) {
     this.itemService.addImage(this.item, this.projectId)
       .then((res: Response) => {
         if(res.ok) {
@@ -103,6 +104,9 @@ export class EditItemPage {
           this.saveItem();
         }
       });
+    } else {
+      this.saveItem();
+    }
   }
 
   saveItem() {
